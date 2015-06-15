@@ -100,10 +100,10 @@ public:
 
         if(char_whitelist != NULL)
             tess.SetVariable("tessedit_char_whitelist", char_whitelist);
-        else if(strcmp(language,"deu") == 0)
-        	tess.SetVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzüöäABCDEFGHIJKLMNOPQRSTUVWXYZÜÖÄß");
+		else if(strcmp(language,"deu") == 0)
+			tess.SetVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzüöäABCDEFGHIJKLMNOPQRSTUVWXYZÜÖÄß");
 		else
-            tess.SetVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
+			tess.SetVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
         tess.SetVariable("save_best_choices", "T");
 #else
