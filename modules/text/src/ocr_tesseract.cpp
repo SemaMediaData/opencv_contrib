@@ -99,7 +99,7 @@ public:
         tess.SetPageSegMode(pagesegmode);
 
         if(char_whitelist != NULL)
-            tess.SetVariable("tessedit_char_whitelist", char_whitelist);
+        	tess.SetVariable("tessedit_char_whitelist", char_whitelist);
 		else if(strcmp(language,"deu") == 0)
 			tess.SetVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzüöäABCDEFGHIJKLMNOPQRSTUVWXYZÜÖÄß");
 		else
