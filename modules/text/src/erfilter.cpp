@@ -3857,7 +3857,9 @@ void erGroupingNM(InputArray _img, InputArrayOfArrays _src, vector< vector<ERSta
 
         for (size_t i=0; i<pending_sequences.size(); i++)
         {
-            bool expanded = false;
+        	//=======CHANGED by Haojin 03.03.15=======//
+            bool expanded = true;
+            //========================================//
             for (size_t j=i+1; j<pending_sequences.size(); j++)
             {
                 if (isValidSequence(pending_sequences[i], pending_sequences[j]))

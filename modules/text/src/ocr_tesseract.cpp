@@ -100,7 +100,9 @@ public:
 
         if(char_whitelist != NULL)
             tess.SetVariable("tessedit_char_whitelist", char_whitelist);
-        else
+        else if(strcmp(language,"deu") == 0)
+        	tess.SetVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzüöäABCDEFGHIJKLMNOPQRSTUVWXYZÜÖÄß");
+		else
             tess.SetVariable("tessedit_char_whitelist", "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
         tess.SetVariable("save_best_choices", "T");
@@ -140,7 +142,9 @@ public:
 
         tess.SetImage((uchar*)image.data, image.size().width, image.size().height, image.channels(), image.step1());
         tess.Recognize(0);
-        output = string(tess.GetUTF8Text());
+        const char* out_string = tess.GetUTF8Text();
+        output = out_string;
+        delete[] out_string;
 
         if ( (component_rects != NULL) || (component_texts != NULL) || (component_confidences != NULL) )
         {
